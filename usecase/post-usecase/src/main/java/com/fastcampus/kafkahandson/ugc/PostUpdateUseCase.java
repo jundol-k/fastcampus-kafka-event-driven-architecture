@@ -9,7 +9,7 @@ public interface PostUpdateUseCase {
 
     @Data
     class Request {
-        private final Long userId;
+        private final Long postId;
         private final String title;
         private final String content;
         private final Long categoryId;
