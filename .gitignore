@@ -42,3 +42,4 @@ secrets.yml
 .idea
 /.data
 *.env
+local.env

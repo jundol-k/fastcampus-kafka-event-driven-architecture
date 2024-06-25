@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class PostUpdateService implements PostUpdateUseCase{
 
     private final PostPort postPort;
+    private final OriginalPostMessageProducePort originalPostMessageProducePort;
 
     @Transactional
     @Override
@@ -21,6 +22,8 @@ public class PostUpdateService implements PostUpdateUseCase{
                 request.getContent(),
                 request.getCategoryId()
         );
-        return postPort.save(post);
+        Post savedPost = postPort.save(post);
+        originalPostMessageProducePort.sendUpdateMessage(savedPost);
+        return savedPost;
     }
 }
