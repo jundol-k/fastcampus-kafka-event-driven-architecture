@@ -3,6 +3,7 @@ package com.fastcampus.kafkahandson.ugc.chatgpt;
 
 import com.fastcampus.kafkahandson.ugc.CustomObjectMapper;
 import com.fastcampus.kafkahandson.ugc.chatgpt.model.ChatCompletionResponse;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
@@ -28,7 +29,9 @@ public class ChatGptClient {
 
     private final CustomObjectMapper customObjectMapper = new CustomObjectMapper();
 
-    public String testChatGpt(String content) {
+    public String getResultForContentWithPolicy(
+            String content,
+            ChatPolicy policy) {
         ChatCompletionResponse response = chatGptWebClient
                 .post()
                 .uri("/v1/chat/completions")
@@ -37,7 +40,9 @@ public class ChatGptClient {
                 .bodyValue(Map.of(
                         "model", TARGET_GPT_MODEL,
                         "messages", List.of(
-                                Map.of("role", "system", "content", "You are an assistant."),
+                                Map.of("role", "system", "content", policy.instruction),
+                                Map.of("role", "user", "content", policy.exampleContent), // 대화의 쌍 중 1
+                                Map.of("role", "assistant", "content", policy.exampleInspectionResult), // 대화의 쌍 중 2
                                 Map.of("role", "user", "content", content)
                         ),
                         "stream", false
@@ -48,5 +53,12 @@ public class ChatGptClient {
 
         assert response != null;
         return response.getChoices()[0].getMessage().getContent();
+    }
+
+    @Data
+    public static class ChatPolicy {
+        private final String instruction;
+        private final String exampleContent;
+        private final String exampleInspectionResult;
     }
 }
