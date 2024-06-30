@@ -1,4 +1,4 @@
-package com.fastcampus.kafkahandson.ugc;
+package com.fastcampus.kafkahandson.ugc.port;
 
 import com.fastcampus.kafkahandson.ugc.inspectedpost.InspectedPost;
 

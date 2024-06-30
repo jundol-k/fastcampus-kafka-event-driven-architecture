@@ -1,6 +1,6 @@
 package com.fastcampus.kafkahandson.ugc.subscribingpost;
 
-import com.fastcampus.kafkahandson.ugc.SubscribingPostPort;
+import com.fastcampus.kafkahandson.ugc.port.SubscribingPostPort;
 import com.fastcampus.kafkahandson.ugc.post.model.Post;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

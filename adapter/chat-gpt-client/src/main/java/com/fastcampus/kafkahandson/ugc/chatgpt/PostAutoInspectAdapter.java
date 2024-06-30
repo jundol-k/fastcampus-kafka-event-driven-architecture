@@ -1,7 +1,7 @@
 package com.fastcampus.kafkahandson.ugc.chatgpt;
 
 import com.fastcampus.kafkahandson.ugc.CustomObjectMapper;
-import com.fastcampus.kafkahandson.ugc.PostAutoInspectPort;
+import com.fastcampus.kafkahandson.ugc.port.PostAutoInspectPort;
 import com.fastcampus.kafkahandson.ugc.inspectedpost.AutoInspectionResult;
 import com.fastcampus.kafkahandson.ugc.post.model.Post;
 import com.fasterxml.jackson.core.JsonProcessingException;

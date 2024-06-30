@@ -1,5 +1,6 @@
 package com.fastcampus.kafkahandson.ugc;
 
+import com.fastcampus.kafkahandson.ugc.post.model.Post;
 import com.fastcampus.kafkahandson.ugc.post.model.ResolvedPost;
 
 import java.util.List;
@@ -19,4 +20,7 @@ public interface PostResolvingHelpUseCase {
      * @return
      */
     List<ResolvedPost> resolvePostById(List<Long> postIds);
+
+    void resolvedPostAndSave(Post post);
+    void deleteResolvedPost(Long postId);
 }

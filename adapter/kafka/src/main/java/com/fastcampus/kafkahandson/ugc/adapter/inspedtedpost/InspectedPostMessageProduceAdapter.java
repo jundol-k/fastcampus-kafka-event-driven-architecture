@@ -1,7 +1,7 @@
 package com.fastcampus.kafkahandson.ugc.adapter.inspedtedpost;
 
 import com.fastcampus.kafkahandson.ugc.CustomObjectMapper;
-import com.fastcampus.kafkahandson.ugc.InspectedPostMessageProducePort;
+import com.fastcampus.kafkahandson.ugc.port.InspectedPostMessageProducePort;
 import com.fastcampus.kafkahandson.ugc.adapter.common.OperationType;
 import com.fastcampus.kafkahandson.ugc.inspectedpost.InspectedPost;
 import com.fasterxml.jackson.core.JsonProcessingException;

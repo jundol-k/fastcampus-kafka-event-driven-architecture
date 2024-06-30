@@ -1,4 +1,4 @@
-package com.fastcampus.kafkahandson.ugc;
+package com.fastcampus.kafkahandson.ugc.port;
 
 import java.util.List;
 
